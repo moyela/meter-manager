@@ -1,6 +1,6 @@
-require_relative 'meter_manager'
+require_relative 'library'
 
-def purchase_units()
+def buy_units()
     puts "How much do you want to top up your meter with?"
     puts "NOTE: 1 unit = N200.00"
     
@@ -14,7 +14,7 @@ def purchase_units()
     puts "0: Go back to main menu"
 
 
-    action = gets.chomp()
+    action = gets.chomp.to_i()
 
     if action == 1
         puts "You have purchased 25 units"
@@ -22,7 +22,7 @@ def purchase_units()
         puts "You have purchased 50 units"
     elsif action == 3
         puts "You have purchased 100 units"
-    elsif action = 4
+    elsif action == 4
        puts "404 Network error. Custom unit purchases are not available at this time"
     else 
         return
@@ -47,13 +47,14 @@ def schedule_purchases()
     new_line(3)
     puts "0: Go back to main menu"
 
-    action = gets.chomp()
+    action = gets.chomp.to_i()
 
     if action == 1
         if default == false
             default = true
             puts "Your account will be charged N5000 when your meter balance falls below 2.0 units"
-        else
+
+        elsif default == true
             default = false
             puts "Automated purchases are OFF"
         end
@@ -61,4 +62,14 @@ def schedule_purchases()
         
     end
 
+end
+
+def alarm_control()
+    feature_not_ready()
+    return
+end
+
+def more_options()
+    feature_not_ready()
+   return
 end

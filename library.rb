@@ -10,6 +10,13 @@ def processing
     clear_text(1)
 end
 
+def feature_not_ready
+    processing()
+    puts "404 Network Timeout"
+    delay(2)
+    processing()
+end
+
 def new_line (number_of_lines = nil)
     if number_of_lines == nil
         number_of_lines = 1
