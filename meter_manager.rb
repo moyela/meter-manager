@@ -2,7 +2,7 @@ require_relative 'library'
 require_relative '1_login'
 require_relative '2_main_menu.rb'
 require 'io/console'
-require 'net/http'
+require 'nokogiri'
 
 
 def main_menu
