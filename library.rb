@@ -1,4 +1,26 @@
-# i made this method so I could easily add a new line without needing to insert a string. with no arguments, it prints one line 
+require 'nokogiri'
+
+def add_units_to_html_file units_bought
+        
+    html_file = File.open('/meter.html')
+    doc = Nokogiri::HTML(html_file)
+
+    element = doc.at_css.to_i('units') # Replace 'element-id' with the actual ID or CSS selector of the element
+    element.content = element + units_bought # Replace 'New content' with the desired new content
+
+end
+
+def get_unit_level_from_html_file
+
+    html_file = File.open('/meter.html')
+    doc = Nokogiri::HTML(html_file)
+
+    element = doc.at_css('units') # Replace 'element-id' with the actual ID or CSS selector of the element
+    units = element.content
+
+    return units
+end
+
 def processing
     new_line()
 

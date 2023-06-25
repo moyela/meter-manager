@@ -1,0 +1,1 @@
+setInterval(refreshElement, 3000)

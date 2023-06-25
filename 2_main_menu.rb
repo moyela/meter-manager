@@ -1,4 +1,5 @@
 require_relative 'library'
+require 'nokogiri'
 
 def buy_units()
     puts "How much do you want to top up your meter with?"
@@ -18,16 +19,18 @@ def buy_units()
 
     if action == 1
         puts "You have purchased 25 units"
+        add_units_to_html_file(25)
     elsif action == 2
         puts "You have purchased 50 units"
+        add_units_to_html_file(50)
     elsif action == 3
         puts "You have purchased 100 units"
+        add_units_to_html_file(100)
     elsif action == 4
        puts "404 Network error. Custom unit purchases are not available at this time"
     else 
         return
     end
-
 
 end
 

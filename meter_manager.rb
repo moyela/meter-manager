@@ -2,12 +2,12 @@ require_relative 'library'
 require_relative '1_login'
 require_relative '2_main_menu.rb'
 require 'io/console'
-require 'nokogiri'
 
 
 def main_menu
+    units = get_unit_level_from_html_file()
 
-    puts "You have #{258.52} units remaining."
+    puts "You have #{units} units remaining."
     puts "Based on recent usage, you have #{11} day(s) of electricity left."; delay(3)
     new_line()
 
@@ -37,7 +37,6 @@ def main_menu
     end
 
 end
-
 
 def event_manager
 
