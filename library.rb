@@ -1,24 +1,27 @@
 require 'nokogiri'
 
-def add_units_to_html_file units_bought
-        
-    html_file = File.open('/meter.html')
-    doc = Nokogiri::HTML(html_file)
-
-    element = doc.at_css.to_i('units') # Replace 'element-id' with the actual ID or CSS selector of the element
-    element.content = element + units_bought # Replace 'New content' with the desired new content
-
-end
-
 def get_unit_level_from_html_file
 
-    html_file = File.open('/meter.html')
-    doc = Nokogiri::HTML(html_file)
+    html = File.read('./meter.html')
+    doc = Nokogiri::HTML(html)
 
-    element = doc.at_css('units') # Replace 'element-id' with the actual ID or CSS selector of the element
-    units = element.content
+    element = doc.at_css('div.units') # Replace 'element-id' with the actual ID or CSS selector of the element
+    units = element.text.strip
 
     return units
+end
+
+def add_units_to_html_file units_bought
+        
+    html = File.open('./meter.html')
+    doc = Nokogiri::HTML(html)
+
+    element = doc.at_css('div.units') # Replace 'element-id' with the actual ID or CSS selector of the element
+    units = element.text.strip.to_i()
+    new_units = units + units_bought.to_i()
+
+    element.content = new_units.to_s() # Replace 'New content' with the desired new content
+
 end
 
 def processing
