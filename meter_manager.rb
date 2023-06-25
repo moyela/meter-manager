@@ -1,4 +1,5 @@
 require_relative 'library'
+require_relative '1_login', '2_main_menu'
 require 'io/console'
 
 $loggedin = nil
@@ -62,9 +63,6 @@ def main_menu
 
 end
 
-def purchase_units()
-    put
-end
 
 def event_manager
     $loggedin = nil
